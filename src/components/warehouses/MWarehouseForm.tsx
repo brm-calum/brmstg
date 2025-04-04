@@ -33,7 +33,8 @@ export function MWarehouseForm({ onSubmit, initialData, isLoading }: MWarehouseF
       custom_value: f.custom_value
     })) || [],
     services: initialData?.services?.map(s => ({
-      id: s.id,
+      id: s.service?.id,           // Extract the id from the nested service object
+      service: s.service,          // Include the nested service object too
       pricing_type: s.pricing_type || 'ask_quote',
       price_per_hour_cents: s.price_per_hour_cents,
       price_per_unit_cents: s.price_per_unit_cents,
